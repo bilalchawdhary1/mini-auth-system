@@ -27,6 +27,7 @@ export const POST = async (request: NextRequest) => {
     await newUser.save();
     // send verification email
     await sendEmail(email, "VERIFY", newUser._id);
+    console.log(email, "VERIFY", newUser._id);
     return NextResponse.json(
       {message: "User registered successfully"},
       {status: 201}
